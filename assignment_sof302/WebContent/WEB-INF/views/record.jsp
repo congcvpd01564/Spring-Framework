@@ -67,14 +67,14 @@
 					</tr>
 					<tr>
 						<td><b><spring:message code="lang.record.date"/></b></td>
-						<td><frm:input path="date" name="date" placeholder="mm/dd/yyyy" /></td>
+						<td><frm:input path="date" name="date" type ="date" /></td>
 					</tr>
 					<tr>
 						<td colspan="2">
-							<input type="submit" class="button" value="Insert" name="btnInsert" />
-							<input type="submit" class="button" value="Update" name="btnUpdate" />
-							<input type="submit" class="button" value="Delete" name="btnDelete" />
-							<input type="reset" class="button" value="Reset">
+							<input type="submit" class="button" value="<spring:message code="lang.button.insert"/>" name="btnInsert" />
+							<input type="submit" class="button" value="<spring:message code="lang.button.update"/>" name="btnUpdate" />
+							<input type="submit" class="button" value="<spring:message code="lang.button.delete"/>" name="btnDelete" />
+							<input type="reset" class="button" value="<spring:message code="lang.button.reset"/>">
 						</td>
 					</tr>
 				</table>

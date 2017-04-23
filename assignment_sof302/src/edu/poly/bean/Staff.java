@@ -35,7 +35,7 @@ public class Staff {
 	@NotNull
 	@Column(name="Birthday")
 	@Temporal(TemporalType.DATE)
-	@DateTimeFormat(pattern="MM/dd/yyyy")
+	
 	private Date birthday;
 	
 	@NotNull

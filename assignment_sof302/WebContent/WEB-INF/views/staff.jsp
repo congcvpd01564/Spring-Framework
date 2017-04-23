@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="frm" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib prefix="frm" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -17,8 +17,8 @@
 <link rel="shortcut icon"
 	href='<c:url value="/resources/"/>/stylesheet/img/devil-icon.png'>
 <!--Pemanggilan gambar favicon-->
-<script type="text/javascript" src='<c:url value="/resources/"/>/form.js'></script>
 <link rel="stylesheet" type="text/css" href='<c:url value="/resources/"/>/mos-style.css'>
+<script type="text/javascript" src='<c:url value="/resources/"/>/form2.js'></script>
 <!--pemanggilan file css-->
 <base href="${pageContext.servletContext.contextPath}/">
 <title>Staff Management</title>
@@ -70,7 +70,7 @@
 					</tr>
 					<tr>
 						<td><b><spring:message code="lang.staff.birthday"/></b></td>
-						<td><frm:input path="birthday" name="birthday" placeholder="mm/dd/yyyy" /></td>
+						<td><frm:input path="birthday" name="birthday" type="date"/></td>
 					</tr>
 					<tr>
 						<td><b><spring:message code="lang.staff.salary"/></b></td>
@@ -90,10 +90,10 @@
 					</tr>
 					<tr>
 						<td colspan="2">
-							<input type="submit" class="button" value="Insert" name="btnInsert" onclick="checkStaff();"/>
-							<input type="submit" class="button" value="Update" name="btnUpdate" />
-							<input type="submit" class="button" value="Delete" name="btnDelete" />
-							<input type="reset" class="button" value="Reset">
+							<input type="submit" class="button" value="<spring:message code="lang.button.insert"/>" name="btnInsert"/>
+							<input type="submit" class="button" value="<spring:message code="lang.button.update"/>" name="btnUpdate" />
+							<input type="submit" class="button" value="<spring:message code="lang.button.delete"/>" name="btnDelete" />
+							<input type="submit" class="button" value="<spring:message code="lang.button.reset"/>">
 						</td>
 					</tr>
 				</table>
