@@ -57,7 +57,7 @@ public class RecordController {
 		Session session = factory.openSession();
 		Transaction transaction = session.beginTransaction();
 		try{
-			//record.setDate(new Date());
+			
 			session.save(record);
 			transaction.commit();
 			model.addAttribute("message", "Insert successfully");
@@ -90,6 +90,7 @@ public class RecordController {
 		}
 		session.close();
 		
+		model.addAttribute("record", new Record());
 		model.addAttribute("records", getRecords());
 		return "record";
 	}

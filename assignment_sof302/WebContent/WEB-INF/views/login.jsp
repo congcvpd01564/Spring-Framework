@@ -10,6 +10,14 @@
 <script type="text/javascript" src='<c:url value="/resources/"/>/form.js'></script>
 <link rel="stylesheet" type="text/css" href='<c:url value="/resources/"/>/mos-style.css'> <!--pemanggilan file css-->
 <base href="${pageContext.servletContext.contextPath}/">
+
+<style type="text/css">
+.err{
+	color:red;
+	font-style: italic;
+}
+</style>
+
 <title>Login</title>
 </head>
 <body>
@@ -25,17 +33,16 @@
 	<p>${message}</p>
 	<frm:form action="login.htm" modelAttribute="login" method="post"
 	name="login" onsubmit="return checkLogin()">
-		<label><spring:message code="lang.login.username"/></label><br>
+		<label><spring:message code="lang.login.username"/><span class="err" id="error_username"></span></label><br>
 		<frm:input path="username" name ="username"/><br><br>
-		<label><spring:message code="lang.login.password"/></label><br>
+		<label><spring:message code="lang.login.password"/><span class="err" id="error_password"></span></label><br>
 		<frm:password path="password" name="password"/><br><br>
 		<input type="submit" value="<spring:message code="lang.login.button"/>" class="button"/>
 		<a href="login.htm?lang=en">English</a> |
 		<a href="login.htm?lang=vi">Vietnamese</a><br><br>
 		<label></label>
 		
-	</frm:form>
-		
+	</frm:form>		
 	</div>
 </div>
 </body>

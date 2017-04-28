@@ -21,6 +21,14 @@
 <link rel="stylesheet" type="text/css" href='<c:url value="/resources/"/>/mos-style.css'>
 <!--pemanggilan file css-->
 <base href="${pageContext.servletContext.contextPath}/">
+
+<style type="text/css">
+.err{
+	color:red;
+	font-style: italic;
+}
+</style>
+
 <title>Depart Management</title>
 </head>
 <body>
@@ -36,20 +44,20 @@
 	<div id="wrapper">
 		<jsp:include page="menu.jsp"></jsp:include>
 		<div id="rightContent">
-			<h3 style="color: red;">${message}</h3>
+			<h3 style="color: red; font-style: italic;">${message}</h3>
 			<frm:form action="depart.htm" modelAttribute="depart" 
 			name="depart" onsubmit="return checkDepart()">
-				<table width="40%">
+				<table width="60%">
 					<tr>
 						<td><b><spring:message code="lang.depart.id"/></b></td>
 						<td>
-						<c:if test="${not empty editMode }"><frm:input path="id" name ="id" readonly="true"/></c:if>
-						<c:if test="${empty editMode }"><frm:input path="id" name ="id"/></c:if>
+						<c:if test="${not empty editMode }"><frm:input path="id" name ="id" readonly="true"/><span class="err" id="error_id"></span></c:if>
+						<c:if test="${empty editMode }"><frm:input path="id" name ="id"/><span class="err" id="error_id"></span></c:if>
 						</td>
 					</tr>
 					<tr>
 						<td><b><spring:message code="lang.depart.name"/></b></td>
-						<td><frm:input path="name" name="name"/></td>
+						<td><frm:input path="name" name="name"/><span class="err" id="error_name"></span></td>
 					</tr>
 					<tr>
 						<td colspan="2" >

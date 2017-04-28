@@ -8,7 +8,7 @@
 </head>
 <body>
 	<%
-		response.sendRedirect("bonus.htm");
+		response.sendRedirect("record.htm");
 	%>
 </body>
 </html>

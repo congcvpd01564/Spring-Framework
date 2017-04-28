@@ -21,6 +21,15 @@
 <script type="text/javascript" src='<c:url value="/resources/"/>/form.js'></script>
 <!--pemanggilan file css-->
 <base href="${pageContext.servletContext.contextPath}/">
+
+<style type="text/css">
+.err{
+	color:red;
+	font-style: italic;
+}
+</style>
+
+
 <title>Account Management</title>
 </head>
 <body>
@@ -36,24 +45,24 @@
 	<div id="wrapper">
 		<jsp:include page="menu.jsp"></jsp:include>
 		<div id="rightContent">
-			<h3 style="color: red;">${message}</h3>
+			<h3 style="color: red; font-style: italic;">${message}</h3>
 			<frm:form action="account.htm" method="post" modelAttribute="account" 
 			name="account" onsubmit="return checkAccount()">
 				<table width="50%">
 					<tr>
 						<td><b><spring:message code="lang.account.username"/></b></td>
 						<td>
-						<c:if test="${not empty editMode }"><frm:input path="username" name ="username" readonly="true"/></c:if>
-						<c:if test="${empty editMode }"><frm:input path="username" name ="username"/></c:if>
+						<c:if test="${not empty editMode }"><frm:input path="username" name ="username" readonly="true"/><span class="err" id="error_username"></span></c:if>
+						<c:if test="${empty editMode }"><frm:input path="username" name ="username"/><span class="err" id="error_username"></span></c:if>
 						</td>
 					</tr>
 					<tr>
 						<td><b><spring:message code="lang.account.pass"/></b></td>
-						<td><frm:password path="password" name ="password" showPassword="true" /></td>
+						<td><frm:password path="password" name ="password" showPassword="true" /><span class="err" id="error_password"></span></td>
 					</tr>
 					<tr>
 						<td><b><spring:message code="lang.account.fullname"/></b></td>
-						<td><frm:input path="fullname" name="fullname" /></td>
+						<td><frm:input path="fullname" name="fullname" /><span class="err" id="error_fullname"></span></td>
 					</tr>
 					<tr>
 						<td colspan="2">

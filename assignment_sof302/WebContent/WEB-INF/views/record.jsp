@@ -18,9 +18,17 @@
 	href='<c:url value="/resources/"/>/stylesheet/img/devil-icon.png'>
 <!--Pemanggilan gambar favicon-->
 <link rel="stylesheet" type="text/css" href='<c:url value="/resources/"/>/mos-style.css'>
-<script type="text/javascript" src='<c:url value="/resources/"/>/form.js'></script>
+<script type="text/javascript" src='<c:url value="/resources/"/>/form1.js'></script>
 <!--pemanggilan file css-->
 <base href="${pageContext.servletContext.contextPath}/">
+
+<style type="text/css">
+.err{
+	color:red;
+	font-style: italic;
+}
+</style>
+
 <title>Record Management</title>
 </head>
 <body>
@@ -36,10 +44,10 @@
 	<div id="wrapper">
 		<jsp:include page="menu.jsp"></jsp:include>
 		<div id="rightContent">		
-			<h3 style="color: red;">${message}</h3>
+			<h3 style="color: red; font-style: italic;">${message}</h3>
 			<frm:form action="record.htm" method="post" modelAttribute="record" 
 			name="record" onsubmit="return checkRecord()">
-				<table width="40%">
+				<table width="60%">
 					<tr>
 						<td><b><spring:message code="lang.record.staffname"/></b></td>
 						<td>
@@ -50,24 +58,24 @@
 					<tr>
 						<td><b><spring:message code="lang.record.id"/></b></td>
 						<td>
-						<c:if test="${not empty editMode }"><frm:input path="id" name ="id" readonly="true"/></c:if>
-						<c:if test="${empty editMode }"><frm:input path="id" name ="id"/></c:if>
+						<c:if test="${not empty editMode }"><frm:input path="id" name ="id" readonly="true"/><span class="err" id="error_id"></span></c:if>
+						<c:if test="${empty editMode }"><frm:input path="id" name ="id"/><span class="err" id="error_id"></span></c:if>
 						</td>
 					</tr>
 					<tr>
 						<td><b><spring:message code="lang.record.type"/></b></td>
 						<td>
 							<frm:radiobutton path="type" label="Thành tích" value="true" id="one"/>
-							<frm:radiobutton path="type" label="Kỷ luật" value="false" id="zero"/>
+							<frm:radiobutton path="type" label="Kỷ luật" value="false" id="zero"/><span class="err" id="error_type"></span>
 						</td>
 					</tr>
 					<tr>
 						<td><b><spring:message code="lang.record.reason"/></b></td>
-						<td><frm:input path="reason" name="reason"/></td>
+						<td><frm:input path="reason" name="reason"/><span class="err" id="error_reason"></span></td>
 					</tr>
 					<tr>
 						<td><b><spring:message code="lang.record.date"/></b></td>
-						<td><frm:input path="date" name="date" type ="date" /></td>
+						<td><frm:input path="date" name="date" placeholder = "yyyy/mm/dd" /><span class="err" id="error_date"></span></td>
 					</tr>
 					<tr>
 						<td colspan="2">

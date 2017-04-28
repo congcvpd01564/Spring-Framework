@@ -21,6 +21,14 @@
 <script type="text/javascript" src='<c:url value="/resources/"/>/form2.js'></script>
 <!--pemanggilan file css-->
 <base href="${pageContext.servletContext.contextPath}/">
+
+<style type="text/css">
+.err{
+	color:red;
+	font-style: italic;
+}
+</style>
+
 <title>Staff Management</title>
 </head>
 <body>
@@ -36,10 +44,10 @@
 	<div id="wrapper">
 		<jsp:include page="menu.jsp"></jsp:include>
 		<div id="rightContent">
-			<h3 style="color: red;">${message}</h3>
+			<h3 style="color: red; font-style: italic;">${message}</h3>
 			<frm:form action="staff.htm" method="post" modelAttribute="staff"
 			 name="staff" onsubmit="return checkStaff()">
-				<table width="40%">
+				<table width="80%">
 					<tr>
 						<td><b><spring:message code="lang.staff.departname"/></b></td>
 						<td>
@@ -49,44 +57,44 @@
 					<tr>
 						<td><b><spring:message code="lang.staff.id"/></b></td>
 						<td>
-						<c:if test="${not empty editMode }"><frm:input path="id" name ="id" readonly="true"/></c:if>
-						<c:if test="${empty editMode }"><frm:input path="id" name ="id"/></c:if>
+						<c:if test="${not empty editMode }"><frm:input path="id" name ="id" readonly="true"/><span class="err" id="error_id"></span></c:if>
+						<c:if test="${empty editMode }"><frm:input path="id" name ="id"/><span class="err" id="error_id"></span></c:if>
 						</td>
 					</tr>
 					<tr>
 						<td><b><spring:message code="lang.staff.name"/></b></td>
-						<td><frm:input path="name" name="name"/></td>
+						<td><frm:input path="name" name="name"/><span class="err" id="error_name"></span></td>
 					</tr>
 					<tr>
 						<td><b><spring:message code="lang.staff.gender"/></b></td>
 						<td>
 							<frm:radiobutton path="gender" label="Male" value="true" id="male"/>
-							<frm:radiobutton path="gender" label="Female" value="false" id="female"/>
+							<frm:radiobutton path="gender" label="Female" value="false" id="female"/><span class="err" id="error_gender"></span>
 						</td>
 					</tr>
 					<tr>
 						<td><b><spring:message code="lang.staff.photo"/></b></td>
-						<td><frm:input path="photo" name="photo" /></td>
+						<td><frm:input path="photo" name="photo" type="file"/><span class="err" id="error_photo"></span></td>
 					</tr>
 					<tr>
 						<td><b><spring:message code="lang.staff.birthday"/></b></td>
-						<td><frm:input path="birthday" name="birthday" type="date"/></td>
+						<td><frm:input path="birthday" name="birthday" placeholder = "yyyy/mm/dd"/><span class="err" id="error_birthday"></span></td>
 					</tr>
 					<tr>
 						<td><b><spring:message code="lang.staff.salary"/></b></td>
-						<td><frm:input path="salary" name="salary"/></td>
+						<td><frm:input path="salary" name="salary"/><span class="err" id="error_salary"></span></td>
 					</tr>
 					<tr>
 						<td><b><spring:message code="lang.staff.email"/></b></td>
-						<td><frm:input path="email" name="email" /></td>
+						<td><frm:input path="email" name="email" /><span class="err" id="error_email"></span></td>
 					</tr>
 					<tr>
 						<td><b><spring:message code="lang.staff.phone"/></b></td>
-						<td><frm:input path="phone" name="phone"/></td>
+						<td><frm:input path="phone" name="phone"/><span class="err" id="error_phone"></span></td>
 					</tr>
 					<tr>
 						<td><b><spring:message code="lang.staff.notes"/></b></td>
-						<td><frm:input path="notes" name="notes"/></td>
+						<td><frm:input path="notes" name="notes"/><span class="err" id="error_notes"></span></td>
 					</tr>
 					<tr>
 						<td colspan="2">
@@ -119,7 +127,7 @@
 					<td class="data">${s.depart.name }</td>
 					<td class="data">${s.name}</td>
 					<td class="data">${s.gender?'Male':'Female'}</td>
-					<td class="data">${s.photo}</td>
+					<td class="data"><img src="<c:url value="/resources/img/${s.photo}"/>" with =30px height = "30px" ></td>
 					<td class="data">${s.birthday}</td>
 					<td class="data">${s.salary}</td>
 					<td class="data">${s.email}</td>

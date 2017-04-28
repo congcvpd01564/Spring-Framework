@@ -55,7 +55,7 @@
 				</tr>
 				<c:forEach var="a" items="${arr}">
 					<tr class="data">
-						<td class="data">${a[0]}</td>
+						<td class="data"><img src="<c:url value="/resources/img/${a[0]}"/>" with =50px height = "50px" ></td>
 						<td class="data">${a[1]}</td>
 						<td class="data">${a[2]}</td>
 						<td class="data">${a[3]}</td>

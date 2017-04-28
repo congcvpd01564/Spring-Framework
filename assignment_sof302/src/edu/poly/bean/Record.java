@@ -32,6 +32,7 @@ public class Record {
 	@NotNull
 	@Column(name="Date")
 	@Temporal(TemporalType.DATE)
+	@DateTimeFormat(pattern="yyyy/MM/dd")
 	private Date date;
 	
 	@ManyToOne

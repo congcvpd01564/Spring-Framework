@@ -87,6 +87,7 @@ public class StaffController {
 		}
 		session.close();
 		
+		model.addAttribute("staff", new Staff());
 		model.addAttribute("staffs", getStaffs());
 		return "staff";
 	}

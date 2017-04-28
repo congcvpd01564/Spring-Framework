@@ -34,8 +34,8 @@ public class Staff {
 	
 	@NotNull
 	@Column(name="Birthday")
+	@DateTimeFormat(pattern="yyyy/MM/dd")
 	@Temporal(TemporalType.DATE)
-	
 	private Date birthday;
 	
 	@NotNull
@@ -66,10 +66,6 @@ public class Staff {
 	//lk voi bang Record(1-N)
 	@OneToMany(mappedBy="staff", fetch = FetchType.EAGER)
 	private Collection<Record> records;
-	
-	public Staff() {
-		super();
-	}
 
 	public Staff(String id, String name, Boolean gender, Date birthday, String photo, String email, String phone,
 			Double salary, String notes, Depart depart, Collection<Record> records) {
@@ -85,6 +81,10 @@ public class Staff {
 		this.notes = notes;
 		this.depart = depart;
 		this.records = records;
+	}
+
+	public Staff() {
+		super();
 	}
 
 	public String getId() {
@@ -174,5 +174,6 @@ public class Staff {
 	public void setRecords(Collection<Record> records) {
 		this.records = records;
 	}
+	
 	
 }

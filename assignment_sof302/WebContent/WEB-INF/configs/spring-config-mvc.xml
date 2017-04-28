@@ -25,7 +25,7 @@
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver"/>
 
 		<!-- Cấu hình package chứa các controller -->
-	<context:component-scan base-package="edu.poly.controller,edu.poly..bean,edu.poly.service,edu.poly.dao"/>
+	<context:component-scan base-package="edu.poly.controller,edu.poly.bean,edu.poly.service,edu.poly.dao"/>
 	
 	<!-- Cấu hình cho CSS,JS... -->
 	<mvc:resources location="/resources/" mapping="/resources/**"></mvc:resources>
